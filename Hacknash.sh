@@ -56,6 +56,12 @@ NetworkDiscover(){
     echo  "These are all the open ports"
 }
 
+DNSScanner(){
+	echo 'Enter the name of the website You wanna LookUP'
+	read Website 
+	nslookup $Website 
+}
+
 Main() {
     while true; do 
         echo 'What do you want to do? (Help,exit)'
@@ -81,7 +87,9 @@ Main() {
         elif [ "$Input" = "openports" ]; then
             openports 
         elif [ "$Input" = "NetworkDiscover" ]; then
-            NetworkDiscover 
+            NetworkDiscover
+	    elif [ "$Inpunt" = "DNSScanner" ]; then 
+	        DNSScanner 
         elif [ "$Input" = "Help" ]; then
             echo 'Commands : '
             echo 'ping' 
@@ -90,7 +98,8 @@ Main() {
             echo 'trace'
             echo 'NetworkInterfaces'
             echo 'openports'
-            echo 'NetworkDiscover'
+            echo 'DNSScanner'
+	    echo 'NetworkDiscover'
             echo 'exit' 
         else 
             echo 'Invalid option. Please try again.'
