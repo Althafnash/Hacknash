@@ -64,19 +64,15 @@ Main() {
         if [ "$Input" = "ping" ]; then
             echo 'Pinging the address...'
             ping_target
-            break
         elif [ "$Input" = "nmap" ]; then
             echo 'Scanning with Nmap...'
             Nmap_Scan
-            break
         elif [ "$Input" = "whatweb" ]; then 
             echo 'Checking for what web server they are using...'
             whatWeb_Scan
-            break
         elif [ "$Input" = "trace" ]; then 
             echo 'Tracing the packets...'
             TracePackets
-            break
         elif [ "$Input" = "exit" ]; then
             echo 'Exiting the program. Goodbye!'
             break
