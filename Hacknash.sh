@@ -47,7 +47,7 @@ NetworkInterfaces(){
 
 openports(){
     echo "Lets check for open ports"
-    netstat -tuln 
+    netdiscover
     echo  "These are all the open ports"
 }
 
