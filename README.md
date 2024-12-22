@@ -8,3 +8,6 @@ HackNash is a tool which is like a all in one CLI tool where you can use Linux t
     - Ping 
     - Whatweb
     - Trace 
+    - NetwrokInterface scanner
+    - OpenPorts scanner
+    - NetworkDiscover scanner 

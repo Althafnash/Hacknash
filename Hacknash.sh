@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# ASCII Art Banner
 echo ' ___ ___                __      _____    _______  ' 
 echo '/   |   \_____    ____ |  | __ /  _  \   \      \  '
 echo '/    ~    \__  \ _/ ___\|  |/ //  /_\  \  /   |   \ '
 echo '\    Y    // __ \\  \___|    </    |    \/    |    \'
 echo ' \___|_  /(____  /\___  >__|_ \____|__  /\____|__  /'
 echo '      \/      \/     \/     \/       \/         \/ '
-
-# Functions
 
 ping_target() {
     echo 'Enter the address: '
@@ -43,7 +40,23 @@ TracePackets() {
     traceroute "$IP"
 }
 
-# Main Menu Function
+NetworkInterfaces(){
+    echo "Showing all Network interfaces"
+    ip a 
+}
+
+openports(){
+    echo "Lets check for open ports"
+    netstat -tuln 
+    echo  "These are all the open ports"
+}
+
+NetworkDiscover(){
+    echo "Lets check for open ports"
+    netstat -tuln 
+    echo  "These are all the open ports"
+}
+
 Main() {
     while true; do 
         echo 'What do you want to do? (Help,exit)'
@@ -68,12 +81,21 @@ Main() {
         elif [ "$Input" = "exit" ]; then
             echo 'Exiting the program. Goodbye!'
             break
+        if [ "$Input" = "NetworkInterfaces" ]; then
+            NetworkInterfaces 
+        if [ "$Input" = "openports" ]; then
+            openports 
+        if [ "$Input" = "NetworkDiscover" ]; then
+            NetworkDiscover 
         elif [ "$Input" = "Help" ]; then
             echo 'Commands : '
             echo 'ping' 
             echo 'nmap'
             echo 'whatweb'
             echo 'trace'
+            echo 'NetworkInterfaces'
+            echo 'openports'
+            echo 'NetworkDiscover'
             echo 'exit' 
         else 
             echo 'Invalid option. Please try again.'
@@ -81,5 +103,4 @@ Main() {
     done
 }
 
-# Start the program
 Main
