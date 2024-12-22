@@ -52,7 +52,7 @@ openports(){
 
 NetworkDiscover(){
     echo "Lets check for open ports"
-    Netdiscover
+    sudo netdiscover
     echo  "These are all the open ports"
 }
 
@@ -76,11 +76,11 @@ Main() {
         elif [ "$Input" = "exit" ]; then
             echo 'Exiting the program. Goodbye!'
             break
-        if [ "$Input" = "NetworkInterfaces" ]; then
+        elif [ "$Input" = "NetworkInterfaces" ]; then
             NetworkInterfaces 
-        if [ "$Input" = "openports" ]; then
+        elif [ "$Input" = "openports" ]; then
             openports 
-        if [ "$Input" = "NetworkDiscover" ]; then
+        elif [ "$Input" = "NetworkDiscover" ]; then
             NetworkDiscover 
         elif [ "$Input" = "Help" ]; then
             echo 'Commands : '
