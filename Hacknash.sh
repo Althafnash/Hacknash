@@ -24,7 +24,6 @@ ping_target() {
 Nmap_Scan() {
     echo 'Enter the IP address: '
     read -r address
-
     sudo nmap "$address" -sV -O -p1-25565 -Pn
 }
 
@@ -53,7 +52,7 @@ openports(){
 
 NetworkDiscover(){
     echo "Lets check for open ports"
-    netstat -tuln 
+    Netdiscover
     echo  "These are all the open ports"
 }
 
