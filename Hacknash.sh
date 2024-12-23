@@ -62,6 +62,42 @@ DNSScanner(){
 	nslookup $Website 
 }
 
+WordPress(){
+    echo 'Lets scan the webiste for vulnerabllities'
+    echo 'Make sure that the website is made of wordpress'
+    echo 'Use whatweb to check this'
+
+    echo 'Enter the url for the wordpress website : '
+    read website 
+    wpscan --url $website  
+}
+
+WebserverScanner(){      
+    echo 'Scaning  web servers for vulnerabilities and misconfigurations.'
+    echo 'enter the web server address'
+    read website 
+    nikto -h $website
+}
+
+SubDomains(){
+    echo 'Enuemrate subdomains'
+    echo 'ENter the subdomain : '
+    read subdomain
+    amass enum -d $subdomain
+}
+
+DNSInformation(){
+    echo 'Gather DNS information and about Subdomains'
+    echo 'What is the website'
+    read website 
+    dnsenum $website 
+}
+
+ARPScanner(){
+    echo "ARP scanning and checking providing device information"
+    sudo arp-scan --localnet 
+}
+
 Main() {
     while true; do 
         echo 'What do you want to do? (Help,exit)'
@@ -90,6 +126,16 @@ Main() {
             NetworkDiscover
 	    elif [ "$Inpunt" = "DNSScanner" ]; then 
 	        DNSScanner 
+        elif [ "$Input" = "WordPress" ]; then 
+            WordPress
+        elif [ "$Input" = "WebserverScanner" ]; then 
+            WebserverScanner
+        elif [ "$Input" = "SubDomains" ]; then 
+            SubDomains
+        elif [ "$Input" = "DNSInformation" ]; then 
+            DNSInformation
+        elif [ "$Input" = "ARPScanner" ]; then 
+            ARPScanner
         elif [ "$Input" = "Help" ]; then
             echo 'Commands : '
             echo 'ping' 
@@ -99,7 +145,11 @@ Main() {
             echo 'NetworkInterfaces'
             echo 'openports'
             echo 'DNSScanner'
-	    echo 'NetworkDiscover'
+            echo 'WordPress'
+	        echo 'NetworkDiscover'
+            echo 'WebserverScanner'
+            echo 'DNSInformation'
+            echo 'ARPScanner'
             echo 'exit' 
         else 
             echo 'Invalid option. Please try again.'
