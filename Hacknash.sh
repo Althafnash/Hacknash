@@ -98,6 +98,18 @@ ARPScanner(){
     sudo arp-scan --localnet 
 }
 
+Wireshark(){
+    echo "Which one do you want to run (1) wireshark or (2) tshark"
+    read wire 
+    if [ "$wire" = "wireshark" ]; then
+        echo "starting wireshark..."
+        sudo wireshark
+    elif [ "$wire" = "tshark" ]; then 
+        echo "starting tshark..."
+        sudo tshark
+    fi
+}
+
 Main() {
     while true; do 
         echo 'What do you want to do? (Help,exit)'
@@ -136,6 +148,8 @@ Main() {
             DNSInformation
         elif [ "$Input" = "ARPScanner" ]; then 
             ARPScanner
+         elif [ "$Input" = "Wireshark" ]; then 
+            Wireshark
         elif [ "$Input" = "Help" ]; then
             echo 'Commands : '
             echo 'ping' 
